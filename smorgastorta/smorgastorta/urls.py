@@ -18,4 +18,6 @@ urlpatterns = patterns('',
     url(r'^verifyLogin$', views.VerifyLogin.as_view(), name='verifyLogin'),
     url(r'^verifySignUp$', views.VerifySignUp.as_view(), name='verifySignUp'),
     url(r'^logout$', views.LogoutUser.as_view(), name='logout'),
+    url(r'^profile$', views.ProfileView.as_view(), name='profile'),
+    url(r'^quiz$', views.QuizView.as_view(), name='quiz'),
 )

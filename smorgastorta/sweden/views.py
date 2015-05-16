@@ -110,3 +110,11 @@ class LogoutUser(generic.View):
     def dispatch(self, request, *args, **kwargs):
         logout(request)
         return HttpResponseRedirect(reverse('index'))
+
+
+class ProfileView(generic.TemplateView):
+    template_name = "sweden/profile.html"
+
+
+class QuizView(generic.TemplateView):
+    template_name = "sweden/quiz.html"
