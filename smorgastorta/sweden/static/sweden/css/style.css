@@ -10,6 +10,8 @@
 
 /* Basic */
 
+	html { visibility:hidden; }
+	
 	body {
 		background: #fff;
 	}

@@ -11,91 +11,41 @@
 		<link rel="stylesheet" href="{% static 'sweden/css/skel.css' %}" />
 		<link rel="stylesheet" href="{% static 'sweden/css/style.css' %}" />
 	</head>
-	<body class="landing">
-
+	<body>
 	<!-- Header -->
 		<header id="header">
 			<h1><a href="{% url 'index' %}">Smorgostorta</a></h1>
+			<nav id="nav">
+				<ul>
+					<li><a href="{% url 'index' %}">Home</a></li>
+					<li><a href="generic.html">Take the Quiz</a></li>
+					<li><a href="elements.html">Your Health</a></li>
+					<li><a href="{% url 'logout' %}" class="button special">Logout</a></li>
+				</ul>
+			</nav>
 		</header>
 
-	<!-- Banner -->
-		<section id="banner">
-			<h2>Smorgostorta</h2>
-			<p>Your personal health assessment application.</p>
-			<ul class="actions">
-				<li><a href="{% url 'login' %}" class="button big">Login Now</a></li>
-				<li><a href="{% url 'signup' %}" class="button big special">Sign Up</a></li>
-			</ul>
-		</section>
-
-	<!-- One -->
-		<section id="one" class="wrapper style1 special">
+	<!-- Main -->
+		<section id="main" class="wrapper">
 			<div class="container">
-				<header class="major">
-					<h2>What is Smorgostorta?</h2>
-					<p>Smorgostorta is an application that predicts three things.</p>
-				</header>
-				<div class="row 150%">
-					<div class="4u 12u$(medium)">
-						<section class="box">
-							<i class="icon big rounded color1 fa-cloud"></i>
-							<h3>Self-Rated Health</h3>
-							<p>People nowadays are prone to sickness and diseases due to the constant pressures they receive from their surroundings. Unknowingly, there is an indicator within oneself which can tell if one is getting ill. This indicator is a widely accepted health measure and is called Self-rated health (SRH).
-							SRH can help determine whether a person is likely to get sick as it is a collation of several aspects of health, such as mental, emotional, and physical.</p>
-						</section>
-					</div>
-					<div class="4u 12u$(medium)">
-						<section class="box">
-							<i class="icon big rounded color9 fa-desktop"></i>
-							<h3>Sleep Problems</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium ullam consequatur repellat debitis maxime.</p>
-						</section>
-					</div>
-					<div class="4u$ 12u$(medium)">
-						<section class="box">
-							<i class="icon big rounded color6 fa-rocket"></i>
-							<h3>Sickness Absence Risk</h3>
-							<p>Managing sickness absence, be it on a small scale business or a large company, is crucial, as sickness absence poses a risk to any company. With a poor risk management, the business might suffer several losses. So, there is a need to assess and predict if a person has an over-risk of sickness absence, to ensure and provide a better risk management scheme, and to safeguard the welfare of the working people.</p>
-						</section>
-					</div>
-				</div>
-			</div>
-		</section>
 
-	<!-- Three -->
-		<section id="three" class="wrapper style3 special">
-			<div class="container">
 				<header class="major">
-					<h2>Contact Us</h2>
-					<p>We'll be glad to hear from you</p>
+					<h2>Generic</h2>
+					<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
 				</header>
-			</div>
-			<div class="container 50%">
-				<form>
-					<div class="row uniform">
-						<div class="6u 12u$(small)">
-							<input name="name" id="name" value="" placeholder="Name" type="text">
-						</div>
-						<div class="6u$ 12u$(small)">
-							<input name="email" id="email" value="" placeholder="Email" type="email">
-						</div>
-						<div class="12u$">
-							<textarea name="message" id="message" placeholder="Message" rows="6"></textarea>
-						</div>
-						<div class="12u$">
-							<ul class="actions">
-								<li><input value="Send Message" class="special big" type="submit"></li>
-							</ul>
-						</div>
-					</div>
-				</form>
+
+				<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
+				<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
+				<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
+				<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
+
 			</div>
 		</section>
 
 	<!-- Footer -->
 		<footer id="footer">
 			<div class="container">
-				<!-- <section class="links">
+				<section class="links">
 					<div class="row">
 						<section class="3u 6u(medium) 12u$(small)">
 							<h3>Lorem ipsum dolor</h3>
@@ -138,18 +88,35 @@
 							</ul>
 						</section>
 					</div>
-				</section> -->
+				</section>
 				<div class="row">
 					<div class="8u 12u$(medium)">
 						<ul class="copyright">
 							<li>&copy; Untitled. All rights reserved.</li>
+							<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+							<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+						</ul>
+					</div>
+					<div class="4u$ 12u$(medium)">
+						<ul class="icons">
+							<li>
+								<a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+							</li>
+							<li>
+								<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+							</li>
+							<li>
+								<a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+							</li>
+							<li>
+								<a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</footer>
 	</body>
-
 	<script src="{% static 'sweden/js/jquery.min.js' %}"></script>
 	<script src="{% static 'sweden/js/skel.min.js' %}"></script>
 	<script src="{% static 'sweden/js/skel-layers.min.js' %}"></script>
