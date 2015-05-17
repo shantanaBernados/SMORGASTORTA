@@ -11,6 +11,15 @@ $(document).ready(function(){
             }
         }
     }
+    $('.helptext').remove();
+    $('label').remove();
+    $('#id_first_name').attr("placeholder", "First Name");
+    $('#id_last_name').attr("placeholder", "Last Name");
+    $('#id_email').attr("placeholder", "Email");
+    $('#id_username').attr("placeholder", "Username");
+    $('#id_password').attr("placeholder", "Password");
+    $('#id_password1').attr("placeholder", "Password");
+    $('#id_password2').attr("placeholder", "Re-type Password");
 
     // $('#login').on('submit', function(e){
     //     e.preventDefault();
