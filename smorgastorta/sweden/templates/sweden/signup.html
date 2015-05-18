@@ -1,80 +1,24 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>Smorgostorta</title>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="{% static 'sweden/css/skel.css' %}" />
-		<link rel="stylesheet" href="{% static 'sweden/css/style.css' %}" />
-		<link rel="stylesheet" href="{% static 'sweden/css/style-xlarge.css' %}" />
-	</head>
-	<body>
+{% extends "base.html" %}
 
-		<!-- Header -->
-			<header id="header">
-				<h1><a href="{% url 'index' %}">Smorgostorta</a></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="{% url 'login' %}" class="button special">Login</a></li>
-					</ul>
-				</nav>
-			</header>
+{% block header_nav %}
+	<li><a href="{% url 'login' %}" class="button special">Login</a></li>
+{% endblock %}
 
-		<!-- Main -->
-			<section id="main" class="wrapper" style="min-height:600px">
-				<div class="container">
-					<header class="major">
-						<h2>Sign Up</h2>
-						<p>It's time for Smorgostorta to take care of you</p>
-					</header>
-					<div class="container" style="width:500px">
-						<form id="signup-form" method="POST">
-							{% csrf_token %}	
-							{{ signupform }}
-							<div class="12u$" style="margin-top: 30px; text-align: center;">
-								<ul class="actions">
-									<li><input type="submit" value="Sign Up" class="special"/></li>
-								</ul>
-							</div>
-						</form>
-					</div>
-				</div>
-			</section>
+{% block main_major %}
+	<h2>Sign Up</h2>
+	<p>It's time for Smorgostorta to take care of you</p>
+{% endblock %}
 
-		<!-- Footer -->
-			<footer id="footer">
-				<div class="container">
-					<div class="row">
-						<div class="8u 12u$(medium)">
-							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved.</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</footer>
-	</body>
-
-	<script src="{% static 'sweden/js/jquery.min.js' %}"></script>
-	<script src="{% static 'sweden/js/skel.min.js' %}"></script>
-	<script src="{% static 'sweden/js/skel-layers.min.js' %}"></script>
-	<script src="{% static 'sweden/js/init.js' %}"></script>
-	<script type="text/javascript">
-		$('.helptext').remove();
-		$('label').remove();
-		$('#id_first_name').attr("placeholder", "First Name");
-		$('#id_last_name').attr("placeholder", "Last Name");
-		$('#id_email').attr("placeholder", "Email");
-		$('#id_username').attr("placeholder", "Username");
-		$('#id_password1').attr("placeholder", "Password");
-		$('#id_password2').attr("placeholder", "Re-type Password");
-		$('input').wrap('<div class="12u$" style="margin-top: 15px;"></div?>');
-		var indexURL = '{% url "index" %}';
-        var verifyLoginURL = '{% url "verifyLogin" %}';
-        var verifySignUpURL ='{% url "verifySignUp" %}';
-	</script>
-	<script src="{% static 'sweden/js/application.js' %}"></script>
-</html>
+{% block main_contents %}
+	<div class="container" style="width:500px">
+		<form id="signup-form" method="POST">
+			{% csrf_token %}	
+			{{ form.as_p }}
+			<div class="12u$" style="margin-top: 30px; text-align: center;">
+				<ul class="actions">
+					<li><input type="submit" value="Sign Up" class="special"/></li>
+				</ul>
+			</div>
+		</form>
+	</div>
+{% endblock %}
