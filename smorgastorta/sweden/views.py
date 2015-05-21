@@ -13,6 +13,7 @@ from django.utils.decorators import method_decorator
 
 from sweden.forms import SignUpForm
 from sweden.models import HWQuestion, SleepQuestion, Assessment, User_HWQ_Assessment
+from sweden.utilities import Thesis_Models
 
 class IndexView(generic.View):
 
@@ -46,7 +47,8 @@ class HomeView(generic.TemplateView):
     template_name = "sweden/home.html"
 
 
-class ProfileView(generic.TemplateView):
+class ProfileView(generic.ListView):
+    model = User_HWQ_Assessment
     template_name = "sweden/profile.html"
 
 
@@ -79,12 +81,72 @@ class AssessView(generic.View):
                 sleep_5=int(request.POST.get('sleep5'))
             )
 
-            hwq.save()
+            hwq.save()  
             sleepq.save()
+
+            hw11 = [
+                float(request.POST.get('srh')),
+                float(request.POST.get('sleep')),
+                float(request.POST.get('concentration')),
+                float(request.POST.get('stress')),
+                float(request.POST.get('energy')),
+                float(request.POST.get('control')),
+                float(request.POST.get('social')),
+                float(request.POST.get('efficiency')),
+                float(request.POST.get('work_joy')),
+                float(request.POST.get('work_load')),
+                float(request.POST.get('work_atm'))
+            ]
+
+            sleep = [
+                int(request.POST.get('sleep1')),
+                int(request.POST.get('sleep2')),
+                int(request.POST.get('sleep3')),
+                int(request.POST.get('sleep4')),
+                int(request.POST.get('sleep5'))
+            ]
+
+            models = Thesis_Models()
+
+            marc = models.assess_sickness_absence(hw11)
+            tamps = models.diagnose_sleep_problem(hw11, sleep)
+            ber = False
+
+            assessments = Assessment.objects.create(
+                sick_leave=marc,
+                sleep=tamps,
+                srh=ber
+            )
+
+            final = User_HWQ_Assessment.objects.create(
+                user=request.user,
+                hwQ=hwq,
+                sleepQ=sleepq,
+                ass=assessments
+            )
+
+
+            return HttpResponseRedirect('results')
 
         except:
             return HttpResponseBadRequest("INVALID INPUT")
 
-        return HttpResponse('Success')
+
+class ResultsView(generic.TemplateView):
+    template_name = 'sweden/results.html'
+
+    def get_context_data(self, **kwargs):
+        results = User_HWQ_Assessment.objects.get(user=self.request.user)
+        print results, 'ASD'
+        context = {
+            'marc': results.ass.sick_leave,
+            'tamps': results.ass.sleep,
+            'ber': results.ass.srh
+        }
+        print context, 'asdasd'
+        return context
+
+
+
 
 

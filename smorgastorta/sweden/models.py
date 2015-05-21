@@ -34,7 +34,7 @@ class Assessment(models.Model):
 class User_HWQ_Assessment(models.Model):
 	user = models.ForeignKey(User)
 	hwQ = models.ForeignKey(HWQuestion)
+	sleepQ = models.ForeignKey(SleepQuestion)
 	ass = models.ForeignKey(Assessment)
 	date = models.DateField(auto_now=True)
-
 
