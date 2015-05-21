@@ -1,6 +1,7 @@
 import pickle
 import re
 import math as m
+import numpy as np
 
 class Thesis_Models(object):
 
@@ -68,6 +69,8 @@ class Thesis_Models(object):
 
 	def predict_srh(self, hw11_input):
 		print "--- SRH Normal ---"
+		hw11_input = self.discretize_input(hw11_input)
+		hw11_input = np.array([hw11_input])
 		srh_value = self.srh_model_1.sim(hw11_input)
 		if srh_value <= 0.6:
 			print "You have low self-rated health!"
@@ -78,6 +81,8 @@ class Thesis_Models(object):
 
 	def predict_srh_timeseries(self, month_input):
 		print "--- SRH Time Series ---"
+		month_input = self.binary_srh(month_input)
+		month_input = np.array([month_input])
 		srh_value = self.srh_model_2.sim(month_input)
 		if srh_value <= 0.6:
 			print "You have low self-rated health!"
@@ -120,3 +125,19 @@ class Thesis_Models(object):
 				value = self.reverse_value(value)
 			input_array.append(value)
 		return input_array
+
+	def discretize_input(self, inputs):
+		for i in range(len(inputs)):
+			if int(inputs[i]/20) == 5:
+				inputs[i] = 4
+			else:
+				inputs[i] = int(inputs[i]/20)
+		return inputs
+
+	def binary_srh(self, inputs):
+		for i in range(len(inputs)):
+			if inputs[i] > 60:
+				inputs[i] == 1
+			else:
+				inputs[i] == 0
+		return inputs

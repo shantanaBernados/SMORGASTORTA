@@ -129,13 +129,15 @@ class AssessView(generic.View):
 
             marc = models.assess_sickness_absence(hw11)
             tamps = models.diagnose_sleep_problem(hw11, sleep)
-            ber = False
+            ber = models.predict_srh(hw11)
 
             assessments = Assessment.objects.create(
                 sick_leave=marc,
                 sleep=tamps,
                 srh=ber
             )
+
+            assessments.save()
 
             final = User_HWQ_Assessment.objects.create(
                 user=request.user,
@@ -144,6 +146,7 @@ class AssessView(generic.View):
                 ass=assessments
             )
 
+            final.save()
 
             return HttpResponseRedirect('results')
 
@@ -155,14 +158,13 @@ class ResultsView(generic.TemplateView):
     template_name = 'sweden/results.html'
 
     def get_context_data(self, **kwargs):
-        results = User_HWQ_Assessment.objects.filter(user=self.request.user).order_by('-date')[0]
-        print results, 'ASD'
+        results = User_HWQ_Assessment.objects.get(user=self.request.user, date=datetime.datetime.today().date())
         context = {
             'marc': results.ass.sick_leave,
             'tamps': results.ass.sleep,
             'ber': results.ass.srh
         }
-        print context, 'asdasd'
+
         return context
 
 
