@@ -14,7 +14,7 @@
 		
 {% block main_contents %}
 	<div class="table-wrapper" id="questionnaire">
-		<form id="hwqForm" method="POST">
+		<form id="hwqForm" action="assess" method="POST">
 			{% csrf_token %}
 			<table>
 				<thead>
@@ -130,7 +130,7 @@
 					</tr>
 				</tbody>
 			</table>
-			<input type='submit'/>
+			<input class="button alt" type='submit'/>
 			<!-- <a href="#" class="button alt">Submit</a> -->
 		</form>
 	</div>		

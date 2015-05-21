@@ -20,4 +20,5 @@ urlpatterns = patterns('',
     url(r'^profile$', views.ProfileView.as_view(), name='profile'),
     url(r'^quiz$', views.QuizView.as_view(), name='quiz'),
     url(r'^assess$', views.AssessView.as_view(), name='assess'),
+    url(r'^results$', views.ResultsView.as_view(), name='results')
 )
