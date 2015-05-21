@@ -17,6 +17,14 @@ class HWQuestion(models.Model):
 	atmosphere = models.FloatField()	
 
 
+class SleepQuestion(models.Model):
+	sleep_1 = models.IntegerField()
+	sleep_2 = models.IntegerField()
+	sleep_3 = models.IntegerField()
+	sleep_4 = models.IntegerField()
+	sleep_5 = models.IntegerField()
+
+
 class Assessment(models.Model):
 	srh = models.BooleanField()	
 	sleep = models.BooleanField()	
