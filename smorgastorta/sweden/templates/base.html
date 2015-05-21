@@ -10,6 +10,9 @@
 		<link rel="stylesheet" href="{% static 'sweden/css/style-xlarge.css' %}" />
 		<link rel="stylesheet" href="{% static 'sweden/css/skel.css' %}" />
 		<link rel="stylesheet" href="{% static 'sweden/css/style.css' %}" />
+		<link rel="stylesheet" href="{% static 'sweden/css/normalize.css' %}" />
+		<link rel="stylesheet" href="{% static 'sweden/css/ion.rangeSlider.css' %}" />
+		<link rel="stylesheet" href="{% static 'sweden/css/ion.rangeSlider.skinFlat.css' %}" />
 	</head>
 	<body  {% block body_class %}{% endblock %}>
 	<!-- Header -->
@@ -58,5 +61,22 @@
 	<script src="{% static 'sweden/js/skel.min.js' %}"></script>
 	<script src="{% static 'sweden/js/skel-layers.min.js' %}"></script>
 	<script src="{% static 'sweden/js/init.js' %}"></script>
+	<script src="{% static 'sweden/js/ion.rangeSlider.min.js' %}"></script>
 	<script src="{% static 'sweden/js/application.js' %}"></script>
+
+
+	<script>
+
+	    $(function () {
+
+	        $("input").ionRangeSlider({
+			    type: "single",
+			    min: 0,
+			    max: 100,
+			    from: 0,
+			    keyboard: true
+			});
+
+	    });
+	</script>
 </html>

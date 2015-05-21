@@ -2,21 +2,120 @@
 
 {% block header_nav %}
 	<li><a href="{% url 'index' %}">Home</a></li>
-	<li><a href="{% url 'quiz' %}">Take the Quiz</a></li>
+	<li><a href="{% url 'quiz' %}">Assess Now</a></li>
 	<li><a href="{% url 'profile' %}">Your Health</a></li>
 	<li><a href="{% url 'logout' %}" class="button special">Logout</a></li>
 {% endblock %}
 
 {% block main_major %}
-	<h2>Generic</h2>
-	<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+	<h2>Health Assessment</h2>
+	<p>Answer the questions as precisely as possible</p>
 {% endblock %}
 		
 {% block main_contents %}
-	<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-	<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-	<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
-	<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
+	<div class="table-wrapper">
+		<table>
+			<thead>
+				<tr>
+					<th>Health Watch Questions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>How do you feel right now?</td>
+					<td>
+						<input type="text" id="question_1" name="srh" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>How did you sleep last night?</td>
+					<td>
+						<input type="text" id="question_2" name="sleep" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>How is your ability to conecntrate right now?</td>
+					<td>
+						<input type="text" id="question_3" name="concentration" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>How stressed do you feel right now?</td>
+					<td>
+						<input type="text" id="question_4" name="stress" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>What is your energy level right now?</td>
+					<td>
+						<input type="text" id="question_5" name="energy" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>Do you have control over your life right now?</td>
+					<td>
+						<input type="text" id="question_6" name="control" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>How satisfied are you with your social life right now?</td>
+					<td>
+						<input type="text" id="question_7" name="social" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>How efficient are you at work right now?</td>
+					<td>
+						<input type="text" id="question_8" name="efficiency" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>How is your job satisfaction right now?</td>
+					<td>
+						<input type="text" id="question_9" name="work_joy" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>How high is your work load right now?</td>
+					<td>
+						<input type="text" id="question_10" name="work_load" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>How is the job atmosphere right now?</td>
+					<td>
+						<input type="text" id="question_11" name="work_atm" value="" />
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<table>
+			<thead>
+				<tr>
+					<th>Sleep-related Questions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>How do you feel right now?</td>
+					<td>
+						<input type="text" id="question_1" name="srh" value="" />
+					</td>
+				</tr>
+				<tr>
+					<td>How did you sleep last night?</td>
+					<td>
+						<input type="text" id="question_2" name="sleep" value="" />
+					</td>
+				</tr>
+				<tr>
+			</tbody>
+		</table>
+
+		<a href="#" class="button alt">Submit</a>
+	</div>
 {% endblock %}
 
 
