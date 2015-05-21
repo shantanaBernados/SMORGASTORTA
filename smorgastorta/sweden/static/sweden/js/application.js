@@ -22,9 +22,9 @@ $(document).ready(function(){
     $('#id_password2').attr("placeholder", "Re-type Password");
 
    $('#hwqForm').on('submit', function(e){
-        // e.preventDefault();
-        // $.post('assess', $(this).serialize(), function(data) {
-        //     console.log(data);
-        // });
+        e.preventDefault();
+        $.post('assess', $(this).serialize(), function(data) {
+            console.log(data);
+        });
    });
 });
