@@ -3,20 +3,59 @@
 {% block header_nav %}
 	<li><a href="{% url 'index' %}">Home</a></li>
 	<li><a href="{% url 'quiz' %}">Assess Now</a></li>
-	<li><a href="{% url 'profile' %}">Your Health</a></li>
+	<li><a href="{% url 'profile' user.username %}">Your Health</a></li>
 	<li><a href="{% url 'logout' %}" class="button special">Logout</a></li>
 {% endblock %}
 
 {% block main_major %}
-	<h2>Generic</h2>
-	<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+	<h2>History</h2>
+	<p>Check your previous assessments below</p>
 {% endblock %}
 		
 {% block main_contents %}
-	<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-	<p>Vis accumsan feugiat adipiscing nisl amet adipiscing accumsan blandit accumsan sapien blandit ac amet faucibus aliquet placerat commodo. Interdum ante aliquet commodo accumsan vis phasellus adipiscing. Ornare a in lacinia. Vestibulum accumsan ac metus massa tempor. Accumsan in lacinia ornare massa amet. Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan.</p>
-	<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet Ac interdum ac non praesent. Cubilia lacinia interdum massa faucibus blandit nullam. Accumsan phasellus nunc integer. Accumsan euismod nunc adipiscing lacinia erat ut sit. Arcu amet. Id massa aliquet arcu accumsan lorem amet accumsan commodo odio cubilia ac eu interdum placerat placerat arcu commodo lobortis adipiscing semper ornare pellentesque.</p>
-	<p>Amet nibh adipiscing adipiscing. Commodo ante vis placerat interdum massa massa primis. Tempus condimentum tempus non ac varius cubilia adipiscing placerat lorem turpis at. Aliquet lorem porttitor interdum. Amet lacus. Aliquam lobortis faucibus blandit ac phasellus. In amet magna non interdum volutpat porttitor metus a ante ac neque. Nisi turpis. Commodo col. Interdum adipiscing mollis ut aliquam id ante adipiscing commodo integer arcu amet blandit adipiscing arcu ante.</p>
+	
+	<div class="table-wrapper" id="questionnaire">
+		<table>
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>SRH Assessment</th>
+					<th>Sleep Problem Assessment</th>
+					<th>Sickness Absence Risk Assessment</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in user_ass%}
+				<tr>
+					<td>
+						{{ i.date }}
+					</td>
+					<td>
+						{% if i.ass.srh %}
+							High SRH
+						{% else %}
+							Low SRH
+						{% endif %}
+					</td>
+					<td>
+						{% if i.ass.sleep %}
+							With Sleep Problem
+						{% else %}
+							Without Sleep Problem
+						{% endif %}
+					</td>
+					<td>
+						{% if i.ass.sick_leave %}
+							High Risk
+						{% else %}
+							Low Risk
+						{% endif %}
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}
 
 

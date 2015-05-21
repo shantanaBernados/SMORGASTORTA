@@ -69,10 +69,18 @@
 
 	    $(function () {
 
-	        $("#questionnaire input[type=text]").ionRangeSlider({
+	        $("#hw11 input[type=text]").ionRangeSlider({
 			    type: "single",
 			    min: 0,
 			    max: 100,
+			    from: 0,
+			    keyboard: true
+			});
+
+	        $("#sleep input[type=text]").ionRangeSlider({
+			    type: "single",
+			    min: 0,
+			    max: 3,
 			    from: 0,
 			    keyboard: true
 			});

@@ -3,20 +3,26 @@
 {% block header_nav %}
 	<li><a href="{% url 'index' %}">Home</a></li>
 	<li><a href="{% url 'quiz' %}">Assess Now</a></li>
-	<li><a href="{% url 'profile' %}">Your Health</a></li>
+	<li><a href="{% url 'profile' user.username %}">Your Health</a></li>
 	<li><a href="{% url 'logout' %}" class="button special">Logout</a></li>
 {% endblock %}
 
 {% block main_major %}
-	<h2>Health Assessment</h2>
-	<p>Answer the questions as precisely as possible</p>
+	{% if not message %}
+		<h2>Health Assessment</h2>
+		<p>Answer the questions as precisely as possible</p>
+	{% else %}
+		<h2>You've already answered today</h2>
+		<p>Please come back tomorrow</p>
+	{% endif %}
 {% endblock %}
 		
 {% block main_contents %}
+	{% if not message %}
 	<div class="table-wrapper" id="questionnaire">
 		<form id="hwqForm" action="assess" method="POST">
 			{% csrf_token %}
-			<table>
+			<table id="hw11">
 				<thead>
 					<tr>
 						<th>Health Watch Questions</th>
@@ -93,7 +99,7 @@
 			</table>
 
 
-			<table>
+			<table id="sleep">
 				<thead>
 					<tr>
 						<th>Sleep-related Questions</th>
@@ -134,7 +140,7 @@
 			<!-- <a href="#" class="button alt">Submit</a> -->
 		</form>
 	</div>		
-	
+	{% endif %}
 	
 {% endblock %}
 

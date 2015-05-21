@@ -3,17 +3,57 @@
 {% block header_nav %}
 	<li><a href="{% url 'index' %}">Home</a></li>
 	<li><a href="{% url 'quiz' %}">Assess Now</a></li>
-	<li><a href="{% url 'profile' %}">Your Health</a></li>
+	<li><a href="{% url 'profile' user.username %}">Your Health</a></li>
 	<li><a href="{% url 'logout' %}" class="button special">Logout</a></li>
 {% endblock %}
 
 {% block main_major %}
-	<h2>Generic</h2>
-	<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+			<header class="major">
+				<h2>Results</h2>
+				<p>Bra! Bra! Bra!</p>
+			</header> 	
 {% endblock %}
 		
 {% block main_contents %}
-	<div id="results">{{ marc }}{{ tamps }}</div>
+	<section id="one" class="wrapper  special">
+		<div class="container">
+			<div class="row 150%">
+				<div class="4u 12u$(medium)">
+					<section class="box">
+						<i class="icon big rounded color1 fa-cloud"></i>
+						<h3>Self-Rated Health</h3>
+						{% if ber%}
+						<p>Based on your answers, Smorgostorta predicted that you will be healthy for the following month! :)</p>
+						{% else %}
+						<p>OMG! Based on your answers, Smorgostorta predicted that you will most likely get sick for the following month! :(</p>
+						{% endif %}
+					</section>
+				</div>
+				<div class="4u 12u$(medium)">
+					<section class="box">
+						<i class="icon big rounded color9 fa-desktop"></i>
+						<h3>Sleep Problems</h3>
+						{% if tamps %}
+						<p>Alert! Smorgostorta detected that you have a sleep problem. Please consult a sleep doctor immediately.</p>
+						{% else %}
+						<p>You're sleep is pretty good. Keep it up!</p>
+						{% endif %}
+					</section>
+				</div>
+				<div class="4u$ 12u$(medium)">
+					<section class="box">
+						<i class="icon big rounded color6 fa-rocket"></i>
+						<h3>Sickness Absence Risk</h3>
+						{% if marc %}
+						<p>Unfortunately, Smorgostorta predicted that you are at risk of sickness absence. This indicates that you should try and get some rest, and don't stress yourself out.</p>
+						{% else %}
+						<p>Smorgostorta says "You're all good!". You are currently not at risk of sickness absence. :)</p>
+						{% endif %}
+					</section>
+				</div>
+			</div>
+		</div>
+	</section>
 {% endblock %}
 
 

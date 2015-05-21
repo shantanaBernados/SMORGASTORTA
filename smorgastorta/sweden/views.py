@@ -1,6 +1,7 @@
 import json
+import datetime
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
 from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
@@ -47,14 +48,32 @@ class HomeView(generic.TemplateView):
     template_name = "sweden/home.html"
 
 
-class ProfileView(generic.ListView):
+class ProfileView(generic.DetailView):
     model = User_HWQ_Assessment
     template_name = "sweden/profile.html"
+
+    def get_object(self, **kwargs):
+        return get_object_or_404(User, username=self.kwargs['slug'])
+
+    def get_context_data(self, **kwargs):
+        user_ass = User_HWQ_Assessment.objects.filter(user=self.object)
+        context = {
+            'user_ass': user_ass
+        }
+        return context
 
 
 class QuizView(generic.TemplateView):
     template_name = "sweden/quiz.html"
 
+    def get_context_data(self, **kwargs):
+        message = User_HWQ_Assessment.objects.filter(user=self.request.user, date=datetime.datetime.today().date())
+        
+        context = {
+            "message": message
+        }
+
+        return context
 
 class AssessView(generic.View):
     def post(self, request):
@@ -136,7 +155,7 @@ class ResultsView(generic.TemplateView):
     template_name = 'sweden/results.html'
 
     def get_context_data(self, **kwargs):
-        results = User_HWQ_Assessment.objects.get(user=self.request.user)
+        results = User_HWQ_Assessment.objects.filter(user=self.request.user).order_by('-date')[0]
         print results, 'ASD'
         context = {
             'marc': results.ass.sick_leave,
